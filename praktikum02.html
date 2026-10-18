@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>H-PIZZA DELIVERY</title>
+</head>
+<body>
+<h1>H-PIZZA DELIVERY</h1>
+<p>H-PIZZA's pizza delivery service!</p>
+
+<form action="http://blackgoosebistro.com/pizza.php" method="post">
+
+<fieldset>
+<legend>Your Information</legend>
+<p><label for="customername">Name:</label> <input type="text" name="customername" id="customername" required></p>
+<p><label for="address">Address:</label> <input type="text" name="address" id="address" required></p>
+<p><label for="telephone">Telephone Number:</label> <input type="tel" name="telephone" id="telephone" required></p>
+<p><label for="email">Email:</label> <input type="email" name="email" id="email" required></p>
+<p><label for="instructions">Delivery instructions:</label></p>
+<p><textarea name="instructions" id="instructions" rows="4" cols="40" maxlength="400" placeholder="No more than 400 characters long"></textarea></p>
+</fieldset>
+
+<fieldset>
+<legend>Design Your Dream Pizza:</legend>
+<p>Pizza specs</p>
+
+<p>Crust (Choose one):</p>
+<p>
+<input type="radio" name="crust" id="classic" value="white" required> <label for="classic">Classic white</label><br>
+<input type="radio" name="crust" id="multigrain" value="multigrain"> <label for="multigrain">Multigrain</label><br>
+<input type="radio" name="crust" id="cheese" value="cheese-stuffed"> <label for="cheese">Cheese-stuffed crust</label><br>
+<input type="radio" name="crust" id="gluten" value="gluten-free"> <label for="gluten">Gluten-free</label>
+</p>
+
+<p>Toppings (Choose as many as you want):</p>
+<p>
+<input type="checkbox" name="toppings[]" id="redsauce" value="red sauce" checked> <label for="redsauce">Red sauce</label><br>
+<input type="checkbox" name="toppings[]" id="whitesauce" value="white sauce"> <label for="whitesauce">White sauce</label><br>
+<input type="checkbox" name="toppings[]" id="mozzarella" value="mozzarella"> <label for="mozzarella">Mozzarella Cheese</label><br>
+<input type="checkbox" name="toppings[]" id="pepperoni" value="pepperoni"> <label for="pepperoni">Pepperoni</label><br>
+<input type="checkbox" name="toppings[]" id="mushrooms" value="mushrooms"> <label for="mushrooms">Mushrooms</label><br>
+<input type="checkbox" name="toppings[]" id="peppers" value="peppers"> <label for="peppers">Peppers</label><br>
+<input type="checkbox" name="toppings[]" id="anchovies" value="anchovies"> <label for="anchovies">Anchovies</label>
+</p>
+
+<p>Number</p>
+<p>
+<label for="number">How many pizzas:</label>
+<select name="number" id="number">
+<option value="1" selected>1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+</select>
+</p>
+</fieldset>
+
+<p>
+<input type="submit" value="Bring me a pizza!">
+<input type="reset" value="Reset">
+</p>
+
+</form>
+</body>
+</html>
