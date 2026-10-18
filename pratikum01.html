@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portofolio Anggota Kelompok</title>
+<style>
+  :root {
+    --bg: #f3f6fb;
+    --card: #ffffff;
+    --ink: #1c2a3a;
+    --muted: #5d6b7c;
+    --accent: #2457c5;
+    --line: #dbe3ee;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 24px 16px 48px;
+  }
+  header { max-width: 960px; margin: 0 auto 32px; }
+  h1 { font-size: 2rem; }
+  header p { color: var(--muted); margin-top: 4px; }
+  .grid {
+    max-width: 960px;
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .foto {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 14px;
+    object-fit: cover;
+  }
+  .card h2 { font-size: 1.2rem; }
+  .peran { color: var(--accent); font-size: .95rem; margin-bottom: 12px; }
+  dl { display: grid; grid-template-columns: 90px 1fr; gap: 6px 10px; font-size: .95rem; }
+  dt { color: var(--muted); }
+  dd { word-break: break-word; }
+  .moto { font-style: italic; color: var(--muted); border-left: 3px solid var(--accent); padding-left: 10px; margin-bottom: 14px; }
+  .sosmed { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px; }
+  .sosmed a { color: var(--accent); text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 2px 12px; font-size: .9rem; }
+  .sosmed a:hover, .sosmed a:focus-visible { background: var(--accent); color: #fff; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Portofolio Anggota Kelompok </h1>
+  <p>Kelompok 4 · Mata Kuliah Desain UI/UX & Pemrograman Web</p>
+</header>
+
+<main class="grid" id="daftar"></main>
+
+<script>
+  const anggota = [
+    {
+      nama: "Muhammad Reifan H",
+      peran: "Ketua Kelompok",
+      nim: "0110226165",
+      kelas: "TI-01",
+      ttl: "Bogor, 17 November 2006",
+      alamat: "Bogor, Jawa Barat",
+      hobi: "Ngopi",
+      email: "muhmmdreifanhardiansyah@gmail.com",
+      moto: "Terus Hidup",
+      instagram: "https://www.instagram.com/",
+      foto: "reifan.png"
+    },
+    {
+      nama: "M.Tegar Abdul Aziz",
+      peran: "Anggota",
+      nim: "0110226012",
+      kelas: "TI-01",
+      ttl: "Tasikmalaya, 02 Februari 2008",
+      alamat: "Depok, Jawa Barat",
+      hobi: "Musik",
+      email: ":tegarabdulaziz210@gmail.com",
+      moto: "Kerjain dulu, Stress belakangan",
+      instagram: "https://www.instagram.com/m_tgrazz",
+      foto: "tegar.jpg"
+    },
+    {
+      nama: "Muhammad Rizky Hidayatulloh",
+      peran: "Anggota",
+      nim: "0110226039",
+      kelas: "TI-01",
+      ttl: "Depok, 13 Oktober 2005",
+      alamat: "Kp.Areman Tugu Cimanggis Depok",
+      hobi: "Renang",
+      email: "muhammadkyyacc@gmail.com",
+      moto: "i don't have a prime i grow and learn everyday",
+      instagram: "https://instagram.com/",
+      foto: "rizky.jpg"
+    },
+    {
+      nama: "Muhammad Ramadhani",
+      peran: "Anggota",
+      nim: "0110226022",
+      kelas: "TI-01",
+      ttl: "Jakarta, 28 September 2006",
+      alamat: "Depok, Jawa Barat",
+      hobi: "Nonton Film",
+      email: "ramarama30111990@gmail.com",
+      moto: "Carpe diem. Seize the day, boys. Make your lives extraordinary",
+      instagram: "https://instagram.com/",
+      foto: "rama.png"
+    }
+  ];
+
+  const wadah = document.getElementById("daftar");
+
+  anggota.forEach(a => {
+    const inisial = a.nama.split(" ").map(k => k[0]).slice(0, 2).join("").toUpperCase();
+    const foto = a.foto
+      ? `<img class="foto" src="${a.foto}" alt="Foto ${a.nama}">`
+      : `<div class="foto" aria-hidden="true">${inisial}</div>`;
+
+    const sosmed = [["Instagram", a.instagram], ["GitHub", a.github], ["LinkedIn", a.linkedin]]
+      .filter(([, url]) => url)
+      .map(([nama, url]) => `<a href="${url}" target="_blank" rel="noopener">${nama}</a>`)
+      .join("");
+
+    wadah.insertAdjacentHTML("beforeend", `
+      <article class="card">
+        ${foto}
+        <h2>${a.nama}</h2>
+        <p class="peran">${a.peran}</p>
+        <p class="moto">“${a.moto}”</p>
+        <dl>
+          <dt>NIM</dt><dd>${a.nim}</dd>
+          <dt>Kelas</dt><dd>${a.kelas}</dd>
+          <dt>TTL</dt><dd>${a.ttl}</dd>
+          <dt>Alamat</dt><dd>${a.alamat}</dd>
+          <dt>Hobi</dt><dd>${a.hobi}</dd>
+          <dt>Email</dt><dd>${a.email}</dd>
+        </dl>
+        <div class="sosmed">${sosmed}</div>
+      </article>
+    `);
+  });
+</script>
+</body>
+</html>
